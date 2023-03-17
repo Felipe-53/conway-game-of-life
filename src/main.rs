@@ -103,13 +103,29 @@ impl GameOfLife {
 
         GameOfLife::new(new_pattern)
     }
+
+    fn print(&self) {
+        let [(min_x, min_y), (max_x, max_y)] = self.get_min_and_max_coordinates();
+
+        for j in (min_y..=max_y).rev() {
+            for i in min_x..=max_x {
+                let cell = (i, j);
+                if self.chekck_if_alive(cell) {
+                    print!("X");
+                } else {
+                    print!(" ");
+                }
+            }
+            println!();
+        }
+    }
 }
 
 fn main() {
-    let mut generation = GameOfLife::new(vec![(0, 0), (-1, 0), (1, 0)]);
+    let mut generation = GameOfLife::new(vec![(0, 0), (1, 0), (2, 0), (3, 0), (4, 0)]);
 
     for _ in 0..11 {
-        println!("{:?}", generation.vector);
+        generation.print();
         generation = generation.iterate()
     }
 }
