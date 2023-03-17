@@ -40,7 +40,7 @@ impl GameOfLife {
             max_y = 1;
         }
 
-        return [(min_x, min_y), (max_x, max_y)];
+        return [(min_x - 1, min_y - 1), (max_x + 1, max_y + 1)];
     }
 
     fn get_num_of_alive_nieghbours_cells(&self, (x, y): Cell) -> i32 {
