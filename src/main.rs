@@ -124,7 +124,8 @@ impl GameOfLife {
 fn main() {
     let mut generation = GameOfLife::new(vec![(0, 0), (1, 0), (2, 0), (3, 0), (4, 0)]);
 
-    for _ in 0..11 {
+    for i in 1..=10 {
+        println!("Current generation: {}", i);
         generation.print();
         generation = generation.iterate()
     }
